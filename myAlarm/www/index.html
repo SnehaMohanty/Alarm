@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+	<script src="lib/ionic/js/angular/angular.min.js"></script>
+	<script src="lib/ionic/js/angular/angular-animate.js"></script>
+	<script src="lib/ionic/js/angular/angular-sanitize.js"></script>
+	<script src="lib/ionic/js/angular-ui/angular-ui-router.js"></script>
+
+
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/script.js"></script>
+  </head>
+  <body bgColor="#3D003D" ng-app="clock">
+
+
+<section class="main">
+	<ng-clock></ng-clock>
+
+<form id="frm" ng-submit="addTodo()">
+
+	Hour:<input type="number" class="in" name="newtodo1" ng-model="newTodo1" max="23" min="0">
+	Minute:<input type="number" class="in" name="newtodo2" ng-model="newTodo2" max="59" min="0">
+
+	<button ng-disabled="frm.$invalid">Add Alarm</button>
+	
+
+</form>
+<button onclick="goto()">Change Color</button>
+	
+
+<ul>
+<li ng-repeat="todo in todos">
+<input ng-click="clearCompleted()" type="checkbox" ng-model="todo.done">
+<span ng-class="{'done':'todo.done'}">{{todo.hours}}</span> : 
+<span ng-class="{'done':'todo.done'}">{{todo.minutes}}</span>
+
+</li>
+</ul>
+</div>
+
+	<script type="text/javascript">
+	
+	function goto(){
+	
+	if(document.bgColor=="#3D003D")
+	{
+	
+	
+	
+	document.bgColor="#993333";
+	
+	}
+	
+	else if(document.bgColor=="#993333"){
+	
+	
+	
+	document.bgColor="#FF8533";
+	
+	}
+	
+	else if(document.bgColor=="#FF8533"){
+	
+	
+	
+	document.bgColor="#3D003D";
+	
+	}
+	
+	
+	
+	
+	}
+	
+	</script>
+  </body>
+</html>
